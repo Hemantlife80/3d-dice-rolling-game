@@ -266,9 +266,9 @@ const DiceGame = () => {
                 newScores[currentPlayer] += result;
                 setScores(newScores);
 
-               const newHistory = [[`${playerNames[currentPlayer]}`, result], ...rollHistory].slice(0, 5);
-                setRollHistory(newHistory);
-
+               const newRoll: [string, number] = [`${playerNames[currentPlayer]}`, result];
+const newHistory = [newRoll, ...rollHistory].slice(0, 5);
+setRollHistory(newHistory);
                 if (newScores[currentPlayer] >= targetScore) {
                     setWinner(currentPlayer);
                     setGameState('won');
